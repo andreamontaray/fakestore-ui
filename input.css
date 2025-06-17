@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme {
+  --font-inter: Inter, sans-serif;
+}
+
+@layer base {
+  button {
+    @apply cursor-pointer;
+  }
+
+  h2 {
+    @apply font-semibold text-xl lg:text-2xl;
+  }
+}
+
+header.on-scroll {
+  @apply bg-white/80 backdrop-blur-[20px];
+}
+
+.right-nav.search {
+  @apply gap-0;
+}
+.right-nav.search .filter-btn {
+  @apply block;
+}
+
+main.search {
+  @apply relative flex flex-wrap justify-center lg:justify-start gap-5 !pt-30 px-4;
+}
+
+section h2 {
+  @apply px-4;
+}
+section h2 span:nth-of-type(1) {
+  @apply text-[#1d1d1f];
+}
+section h2 span:nth-of-type(2) {
+  @apply text-[#6e6e73];
+}
+.product-info .title {
+  @apply font-semibold text-[16px]/5;
+}
+.image-container .image {
+  @apply h-full w-full object-contain;
+}
+
+section > div {
+  @apply flex gap-5 m-2 py-6 px-2 overflow-x-auto;
+}
+section > div::-webkit-scrollbar {
+  @apply hidden;
+}
+.card {
+  @apply flex flex-col justify-between w-[313px] h-125 p-[30px] bg-white rounded-2xl shadow-lg cursor-pointer hover:scale-102 transition-all duration-300;
+}
+.image-container {
+  @apply w-[253px] h-[270px] mx-auto pt-10;
+}
+.product-info {
+  @apply flex flex-col  pt-5;
+}
+.product-info .price {
+  @apply block mt-[27px] text-[13px];
+}
+.prev-btn,
+.next-btn {
+  @apply w-9 h-9 bg-[#dedee2] text-[#626263] text-xl rounded-full hover:bg-[#e6e6e9] hover:text-[#535354] transition-all duration-200;
+}
+.prev-btn i,
+.next-btn i {
+  @apply flex items-center justify-center w-full h-full;
+}
+
+:root {
+  --width: 0%;
+}
+.product-details .rating i {
+  @apply absolute top-1/2 left-1/2 text-sm -translate-x-1/2 -translate-y-1/2;
+}
+.product-details .rating i:nth-of-type(1) {
+  @apply text-[#2ada71] z-1;
+}
+.product-details .rating i:nth-of-type(2) {
+  @apply text-white -z-1;
+}
+.product-details .rating i:nth-of-type(2).full {
+  @apply text-[#2ada71];
+}
+.product-details .rating i:nth-of-type(2).not-full {
+  background: linear-gradient(
+    to right,
+    #2ada71 0%,
+    #2ada71 var(--width),
+    white var(--width),
+    white 100%
+  );
+  background-clip: text;
+  color: transparent;
+}
+
+.filter-sidebar.show {
+  @apply translate-x-0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.rating.click {
+  @apply bg-[#e9e9e9];
+}
