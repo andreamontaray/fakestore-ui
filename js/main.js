@@ -1,4 +1,5 @@
 const main = document.querySelector("main");
+const searchForm = document.querySelector(".search-form");
 const filterSidebar = document.querySelector(".filter-sidebar");
 const closeBtn = document.querySelector(".close-btn");
 const priceFilterForm = document.querySelector(".price-filter-form");
@@ -242,12 +243,13 @@ function init() {
 window.addEventListener("scroll", handleScroll);
 document.addEventListener("DOMContentLoaded", init);
 document
-  .querySelector(".search-form")
-  .addEventListener("submit", searchAPIData);
-document
   .querySelector(".filter-btn")
   .addEventListener("click", showFilterSidebar);
+
+if (searchForm) searchForm.addEventListener("submit", searchAPIData);
 if (closeBtn) closeBtn.addEventListener("click", hideFilterSidebar);
+if (priceFilterForm)
+  priceFilterForm.addEventListener("submit", handlePriceSubmit);
 
 categories.forEach((category) => {
   category.addEventListener("change", () => {
@@ -257,12 +259,9 @@ categories.forEach((category) => {
 ratings.forEach((rating) => {
   rating.addEventListener("click", () => handleRatingClick(rating));
 });
-if (priceFilterForm)
-  priceFilterForm.addEventListener("submit", handlePriceSubmit);
 document
   .querySelectorAll(".next-btn")
   .forEach((btn) => btn.addEventListener("click", handleNextBtnClick));
-
 document
   .querySelectorAll(".prev-btn")
   .forEach((btn) => btn.addEventListener("click", handlePrevBtnClick));
